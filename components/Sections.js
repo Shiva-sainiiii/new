@@ -1,6 +1,5 @@
 import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
 
-import Glasses from "@/components/Glasses";
 import { Mail, Phone, Pin } from "@/components/Icons";
 
 const Shot = ({ label, style }) => <div className="shot" style={style}>{label}</div>;
@@ -15,7 +14,6 @@ export function Hero() {
           <div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div>
           <div className="board-s">Clinic · Gym · Café · Real Estate · Services</div>
         </div>
-        <Glasses />
       </div>
       <div className="hero-body">
         <div>

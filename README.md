@@ -8,7 +8,7 @@
 - `data/content.js`: saara text, links, WhatsApp number, certificates, projects.
 - `app/page.js`: section ka order (lines upar-neeche karo).
 - `components/Shutter.js`: shutter animation.
-- `components/Glasses.js`: 3D chashma (`public/glasses.glb`). Seedha na dikhe to `ORBIT` badlo.
+- `components/Glasses.js`: 3D chashma jo scroll ke saath har heading tak udta hai (`FRONT` se direction badlo).
 - `components/ScrollFX.js`: scroll reveal animation + nav ka progress bar.
 - Logo: `public/shiva-logo.png` (nav, visiting card, chat DP), `app/icon.png` (favicon).
 - `app/globals.css`: colors (top par :root) aur mobile breakpoint (820px).

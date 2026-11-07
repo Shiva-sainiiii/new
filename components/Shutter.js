@@ -1,6 +1,5 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { heroLines } from "@/data/content";
 
 export default function Shutter() {
   const [s, setS] = useState("closed"); // closed | up | gone
@@ -23,7 +22,7 @@ export default function Shutter() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (seen || reduce) { done.current = true; window.__shutterDone = true; setS("gone"); return; }
     document.body.style.overflow = "hidden";
-    const t = setTimeout(open, 3500);
+    const t = setTimeout(open, 2800);
     const key = (e) => { if (["Enter", " ", "ArrowUp", "ArrowDown", "Escape"].includes(e.key)) open(); };
     window.addEventListener("keydown", key);
     return () => { clearTimeout(t); window.removeEventListener("keydown", key); document.body.style.overflow = ""; };
@@ -35,10 +34,9 @@ export default function Shutter() {
       onTouchStart={(e) => (y0.current = e.touches[0].clientY)}
       onTouchMove={(e) => { if (y0.current !== null && y0.current - e.touches[0].clientY > 30) open(); }}
       role="button" aria-label="Open the shutter">
-      <div className="board"><div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div><div className="board-s">Clinic · Gym · Café · Real Estate · Services</div></div>
+      <img className="shutter-logo" src="/shiva-logo.png" alt="" />
       <div className="lock" />
-      <div className="shutter-hint">Shutter uthao: tap ya swipe up</div>
-      <button className="shutter-skip" onClick={(e) => { e.stopPropagation(); open(); }}>Skip</button>
+      <div className="chev" />
     </div>
   );
 }
