@@ -1,4 +1,5 @@
 import Shutter from "@/components/Shutter";
+import ScrollFX from "@/components/ScrollFX";
 import Nav from "@/components/Nav";
 import AskAI from "@/components/AskAI";
 import Feedback from "@/components/Feedback";
@@ -8,6 +9,7 @@ import { Hero, Sapna, Templates, Services, Process, Projects, EasyDevOps, About,
 export default function Home() {
   return (
     <>
+      <ScrollFX />
       <Shutter />
       <Nav />
       <main>

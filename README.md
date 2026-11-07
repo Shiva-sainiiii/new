@@ -7,7 +7,10 @@
 ## Kahan kya badalna hai
 - `data/content.js`: saara text, links, WhatsApp number, certificates, projects.
 - `app/page.js`: section ka order (lines upar-neeche karo).
-- `components/Shutter.js`: shutter animation (sirf pehli visit par, 3.5s baad auto-open, Skip, reduced-motion safe).
+- `components/Shutter.js`: shutter animation.
+- `components/Glasses.js`: 3D chashma (`public/glasses.glb`). Seedha na dikhe to `ORBIT` badlo.
+- `components/ScrollFX.js`: scroll reveal animation + nav ka progress bar.
+- Logo: `public/shiva-logo.png` (nav, visiting card, chat DP), `app/icon.png` (favicon).
 - `app/globals.css`: colors (top par :root) aur mobile breakpoint (820px).
 - Images: `public/` mein rakho, phir `components/Sections.js` ke `<Shot />` ko `<img src="/file.png" />` se badlo. Certificates ke liye `data/content.js` mein `image: "/certs/x.jpg"`.
 

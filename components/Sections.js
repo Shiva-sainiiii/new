@@ -1,5 +1,8 @@
 import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
 
+import Glasses from "@/components/Glasses";
+import { Mail, Phone, Pin } from "@/components/Icons";
+
 const Shot = ({ label, style }) => <div className="shot" style={style}>{label}</div>;
 const Row = ({ a, b, red }) => (<div className="brow"><span>{a}</span><i /><b className={red ? "red" : ""}>{b}</b></div>);
 
@@ -7,9 +10,12 @@ export function Hero() {
   return (
     <section id="top" className="sec wall blue hero">
       <div className="awning" />
-      <div className="board">
-        <div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div>
-        <div className="board-s">Clinic · Gym · Café · Real Estate · Services</div>
+      <div className="board-wrap">
+        <div className="board">
+          <div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div>
+          <div className="board-s">Clinic · Gym · Café · Real Estate · Services</div>
+        </div>
+        <Glasses />
       </div>
       <div className="hero-body">
         <div>
@@ -137,7 +143,7 @@ export function About() {
   return (
     <section id="about" className="sec wall chalk">
       <div className="split about">
-        <div className="vcard"><Shot label="[Plain-background photo of you]" style={{ height: 260 }} /><div className="vc-n">{site.name}</div><div className="vc-r">Full-stack developer</div><div className="vc-c">{site.phone}<br />{site.location}</div></div>
+        <div className="vcard"><Shot label="[Plain-background photo of you]" style={{ height: 260 }} /><div className="vc-top"><div><div className="vc-n">{site.name}</div><div className="vc-r">Full-stack developer</div></div><img src="/shiva-logo.png" alt="" /></div><div className="vc-c">{site.location}</div></div>
         <div>
           <h2 className="d">About</h2>
           <p className="big2">Self-driven full-stack developer from Kharkhoda, Haryana. I build websites and AI tools for businesses, and I started by deploying from a phone.</p>
@@ -171,15 +177,21 @@ export function Contact() {
   return (
     <section id="contact" className="sec wall yel contact">
       <div><div className="open-sign"><span className="d">Open</span><small>for freelance work and internships</small></div><h2 className="d huge">Let's talk.</h2></div>
-      <div className="between end">
-        <div className="info">
-          <a href={`mailto:${site.email}`}>{site.email}</a><br />
-          <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a><br />{site.location}
+      <div className="contact-grid">
+        <div>
+          <div className="row-btns first">
+            <a className="btn wh" href={`mailto:${site.email}`}><Mail size={20} />Email me</a>
+            <a className="btn wh" href={`tel:${site.phone.replace(/\s/g, "")}`}><Phone size={20} />Call me</a>
+          </div>
+          <div className="row-btns">
+            <a className="btn dk" href={wa()} target="_blank" rel="noreferrer">WhatsApp me</a>
+            <a className="btn alt" href={site.linkedin}>LinkedIn</a>
+            <a className="btn alt" href={site.github}>GitHub</a>
+          </div>
         </div>
-        <div className="row-btns">
-          <a className="btn dk" href={wa()} target="_blank" rel="noreferrer">WhatsApp me</a>
-          <a className="btn alt" href={site.linkedin}>LinkedIn</a>
-          <a className="btn alt" href={site.github}>GitHub</a>
+        <div className="mapbox">
+          <iframe title="Kharkhoda, Haryana 131402 on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <a className="map-cap" href={site.mapLink} target="_blank" rel="noreferrer"><span><Pin size={18} /> {site.location}</span><span>Open in Maps ↗</span></a>
         </div>
       </div>
     </section>

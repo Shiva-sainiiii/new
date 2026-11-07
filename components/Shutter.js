@@ -1,23 +1,27 @@
 "use client";
-import { heroLines } from "@/data/content";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { heroLines } from "@/data/content";
 
 export default function Shutter() {
   const [s, setS] = useState("closed"); // closed | up | gone
   const y0 = useRef(null);
+  const done = useRef(false);
+
   const open = useCallback(() => {
-    setS((cur) => {
-      if (cur !== "closed") return cur;
-      try { sessionStorage.setItem("shutter", "1"); } catch {}
-      setTimeout(() => { setS("gone"); document.body.style.overflow = ""; }, 1200);
-      return "up";
-    });
+    if (done.current) return;
+    done.current = true;
+    try { sessionStorage.setItem("shutter", "1"); } catch {}
+    window.__shutterDone = true;
+    window.dispatchEvent(new Event("shutter-open"));
+    setS("up");
+    setTimeout(() => { setS("gone"); document.body.style.overflow = ""; }, 1200);
   }, []);
+
   useEffect(() => {
     let seen = false;
     try { seen = !!sessionStorage.getItem("shutter"); } catch {}
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (seen || reduce) { setS("gone"); return; }
+    if (seen || reduce) { done.current = true; window.__shutterDone = true; setS("gone"); return; }
     document.body.style.overflow = "hidden";
     const t = setTimeout(open, 3500);
     const key = (e) => { if (["Enter", " ", "ArrowUp", "ArrowDown", "Escape"].includes(e.key)) open(); };

@@ -4,7 +4,9 @@ export const site = {
   wa: "918813008167",
   email: "shivasaini.5666@gmail.com",
   phone: "+91 88130 08167",
-  location: "Kharkhoda (Sonipat), Haryana",
+  location: "Kharkhoda (Sonipat), Haryana 131402",
+  mapEmbed: "https://www.google.com/maps?q=Kharkhoda%2C%20Sonipat%2C%20Haryana%20131402&output=embed",
+  mapLink: "https://www.google.com/maps/search/?api=1&query=Kharkhoda+Haryana+131402",
   github: "#", linkedin: "#", resume: "#", // resume: public/resume.pdf rakho aur "/resume.pdf" likho
   sapnaUrl: "https://drsapnadentalrohtak.vercel.app/",
   easyUrl: "https://easydevops.vercel.app",
