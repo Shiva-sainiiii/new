@@ -25,25 +25,23 @@ export default function AskAI() {
   }
 
   return (
-    <section id="ask" className="sec dark">
+    <section id="ask" className="sec wall ink">
       <div className="split ask">
-        <div className="col-between">
-          <div>
-            <h2 className="h">Ask<br />my AI</h2>
-            <p className="lead">Questions about my projects, stack or services. Answers come from my real work.</p>
-          </div>
-          <div className="chips col"><span className="t yl">Try asking</span>{askChips.map((c) => <button key={c} className="pill btnpill" onClick={() => send(c)}>{c}</button>)}</div>
+        <div>
+          <h2 className="d">Ask<br />my AI</h2>
+          <p className="lead">Questions about my projects, stack or services. Answers come from my real work.</p>
+          <div className="stickers col">{askChips.map((c) => <button key={c} className="sticker btn-s" onClick={() => send(c)}>{c}</button>)}</div>
         </div>
-        <div className="chat-box">
-          <div className="chat-head">Shiva's assistant</div>
-          <div className="chat-body" ref={box}>
+        <div className="phone">
+          <div className="wa-head">Shiva's assistant</div>
+          <div className="wa-body" ref={box}>
             {msgs.length === 0 && <div className="bubble ai">Hi! Ask me about Shiva's work, or tap a question on the left.</div>}
             {msgs.map((m, i) => <div key={i} className={`bubble ${m.r}`}>{m.t}</div>)}
             {busy && <div className="bubble ai">…</div>}
           </div>
-          <div className="chat-in">
+          <div className="wa-in">
             <input value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Ask anything…" />
-            <button onClick={() => send()} disabled={busy}>Send ↗</button>
+            <button onClick={() => send()} disabled={busy} aria-label="Send">➤</button>
           </div>
         </div>
       </div>

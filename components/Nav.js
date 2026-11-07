@@ -10,7 +10,7 @@ export default function Nav() {
       <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}><span /></button>
       <nav className={open ? "open" : ""} onClick={() => setOpen(false)}>
         {links.map(([l, h]) => <a key={l} href={h}>{l}</a>)}
-        <a className="pill-y" href={wa()} target="_blank" rel="noreferrer">Contact</a>
+        <a className="btn sm" href={wa()} target="_blank" rel="noreferrer">Contact</a>
       </nav>
     </header>
   );
