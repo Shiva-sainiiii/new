@@ -1,4 +1,5 @@
 "use client";
+import { heroLines } from "@/data/content";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Shutter() {
@@ -30,7 +31,7 @@ export default function Shutter() {
       onTouchStart={(e) => (y0.current = e.touches[0].clientY)}
       onTouchMove={(e) => { if (y0.current !== null && y0.current - e.touches[0].clientY > 30) open(); }}
       role="button" aria-label="Open the shutter">
-      <div className="board"><div className="d board-t">Your business, online</div><div className="board-s">Clinic · Gym · Café · Real Estate · Services</div></div>
+      <div className="board"><div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div><div className="board-s">Clinic · Gym · Café · Real Estate · Services</div></div>
       <div className="lock" />
       <div className="shutter-hint">Shutter uthao: tap ya swipe up</div>
       <button className="shutter-skip" onClick={(e) => { e.stopPropagation(); open(); }}>Skip</button>

@@ -12,6 +12,9 @@ export const site = {
 export const wa = (t = "Hi Shiva, I want a website for my business") =>
   `https://wa.me/${site.wa}?text=${encodeURIComponent(t)}`;
 
+// Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
+export const heroLines = ["Your business,", "now online."];
+
 export const sapna = { result: "[YOUR RESULT, e.g. bookings per month]" };
 
 export const templates = [

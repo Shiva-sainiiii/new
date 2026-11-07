@@ -1,4 +1,4 @@
-import { site, wa, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
+import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
 
 const Shot = ({ label, style }) => <div className="shot" style={style}>{label}</div>;
 const Row = ({ a, b, red }) => (<div className="brow"><span>{a}</span><i /><b className={red ? "red" : ""}>{b}</b></div>);
@@ -8,7 +8,7 @@ export function Hero() {
     <section id="top" className="sec wall blue hero">
       <div className="awning" />
       <div className="board">
-        <div className="d board-t">Your business, online</div>
+        <div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div>
         <div className="board-s">Clinic · Gym · Café · Real Estate · Services</div>
       </div>
       <div className="hero-body">

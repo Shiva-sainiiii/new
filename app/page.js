@@ -1,6 +1,5 @@
 import Shutter from "@/components/Shutter";
 import Nav from "@/components/Nav";
-import StickyBar from "@/components/StickyBar";
 import AskAI from "@/components/AskAI";
 import Feedback from "@/components/Feedback";
 import { Hero, Sapna, Templates, Services, Process, Projects, EasyDevOps, About, Certificates, Contact } from "@/components/Sections";
@@ -25,7 +24,6 @@ export default function Home() {
         <Feedback />
         <Contact />
       </main>
-      <StickyBar />
     </>
   );
 }
