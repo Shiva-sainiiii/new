@@ -1,5 +1,6 @@
 import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
 import { Mail, Phone, Pin } from "@/components/Icons";
+import ProjectList from "@/components/ProjectList";
 
 // Khali ya "#" link ko hide karne ke liye
 const ok = (u) => u && u !== "#";
@@ -112,23 +113,7 @@ export function Projects() {
   return (
     <section id="projects" className="sec wall chalk">
       <div className="between"><h2 className="d">Projects</h2><span className="small">Things I built for myself.</span></div>
-      <div className="khata">
-        {projects.map(([n, stack, d, live, code, shots = []]) => (
-          <div key={n} className="k-row">
-            <div className="k-n">{n === "EasyDevOps" ? <a href="#easydevops">{n}</a> : n}</div>
-            <div><b>{stack}</b><div>{d}</div></div>
-            <div className="k-l">
-              {ok(live) && <a href={live} target="_blank" rel="noreferrer">Live ↗</a>}
-              {ok(code) && <a href={code} target="_blank" rel="noreferrer">Code ↗</a>}
-            </div>
-            {shots.length > 0 && (
-              <div className="k-shots">
-                {shots.map((src) => <a key={src} href={src} target="_blank" rel="noreferrer"><img src={src} alt={`${n} screenshot`} loading="lazy" /></a>)}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+      <ProjectList />
     </section>
   );
 }
