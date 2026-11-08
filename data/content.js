@@ -1,4 +1,4 @@
-// Saara content yahin se badlo. Placeholders "#" ya [ ] ko asli values se replace karo.
+// Saara content yahin se badlo. Khali ("" ya null) values wali links/rows site pe apne aap hide ho jaati hain.
 export const site = {
   name: "Shiva Saini",
   wa: "918813008167",
@@ -7,7 +7,9 @@ export const site = {
   location: "Kharkhoda (Sonipat), Haryana 131402",
   mapEmbed: "https://www.google.com/maps?q=Kharkhoda%2C%20Sonipat%2C%20Haryana%20131402&output=embed",
   mapLink: "https://www.google.com/maps/search/?api=1&query=Kharkhoda+Haryana+131402",
-  github: "#", linkedin: "#", resume: "#", // resume: public/resume.pdf rakho aur "/resume.pdf" likho
+  github: "https://github.com/Shiva-sainiiii", linkedin: "https://www.linkedin.com/in/shiva-sainiiii", resume: "/resume.pdf", // resume: public/resume.pdf
+  photo: null, // apni plain-background photo public/ me rakho aur "/me.jpg" likho; tab tak logo dikhta hai
+  moreDemos: "https://egsite.vercel.app",
   sapnaUrl: "https://drsapnadentalrohtak.vercel.app/",
   easyUrl: "https://easydevops.vercel.app",
 };
@@ -17,11 +19,12 @@ export const wa = (t = "Hi Shiva, I want a website for my business") =>
 // Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
 export const heroLines = ["Your business,", "now online."];
 
-export const sapna = { result: "[YOUR RESULT, e.g. bookings per month]" };
+// result: jab asli number/line ho tab bharo (khali = row hide). image: "/sapna.jpg" (screenshot) public/ me rakho.
+export const sapna = { result: "", image: null };
 
 export const templates = [
-  { name: "Dentist", text: "Clinic site with booking, treatments and a chatbot.", c: ["#0e5a6b", "#7fe3f0"] },
-  { name: "Gym", text: "Plans, trainers and membership enquiries that convert.", c: ["#7a1212", "#ff6a4d"] },
+  { name: "Dentist", text: "Clinic site with booking, treatments and a chatbot.", c: ["#0e5a6b", "#7fe3f0"], demo: "https://egsite.vercel.app/samples/dental/3d/index.html" },
+  { name: "Gym", text: "Plans, trainers and membership enquiries that convert.", c: ["#7a1212", "#ff6a4d"], demo: "https://egsite.vercel.app/samples/gym/frd/index.html" },
   { name: "Jeweller", text: "Showroom feel, catalogue and investment calculator.", c: ["#6b4a12", "#f5d889"] },
   { name: "Cafe", text: "Menu, gallery and table bookings on WhatsApp.", c: ["#4a2c17", "#e6b27a"] },
   { name: "Real Estate", text: "Property listings with maps and lead capture.", c: ["#12354a", "#8fd0ff"] },
@@ -38,10 +41,10 @@ export const process = [
   ["Launch", "Google Business and WhatsApp Business set up, so customers can find you and message you."],
 ];
 export const projects = [
-  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", "#"],
-  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "#", "#"],
-  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "#", "#"],
-  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "#", "#"],
+  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", ""],
+  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai"],
+  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush"],
+  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog"],
 ];
 export const easy = [
   ["Problem", "June 2026, coding from a phone: GitHub meant adding and deleting files one by one, and Vercel meant a separate tab to import a repo and deploy."],

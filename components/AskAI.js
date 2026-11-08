@@ -46,7 +46,7 @@ export default function AskAI() {
           </div>
           <div className="wa-body" ref={box}>
             <div className="wa-day">Today</div>
-            <div className="bubble ai">Hi! Ask me about Shiva's work, or tap a question on the left.<small>{t0}</small></div>
+            <div className="bubble ai">Hi! Ask me about Shiva's work, or tap one of the suggested questions.<small>{t0}</small></div>
             {msgs.map((m, i) => (
               <div key={i} className={`bubble ${m.r}`}>{m.t}<small>{m.at}{m.r === "me" && <Ticks size={14} className="tick" />}</small></div>
             ))}

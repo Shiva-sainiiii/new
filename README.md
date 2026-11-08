@@ -17,8 +17,14 @@
 ## Ask my AI
 Bina key ke canned answers aate hain. Real AI ke liye `.env.local` banao (`.env.example` dekho) aur `GEMINI_API_KEY` daalo. Vercel par Environment Variables mein bhi daalna.
 
-## Feedback
-`app/api/feedback/route.js` abhi sirf server log karta hai. Supabase insert wahan lagana hai.
+## Feedback (Supabase)
+Supabase SQL editor me ye chalao, phir Vercel env me `SUPABASE_URL` aur `SUPABASE_SERVICE_KEY` daalo:
+
+    create table feedback (id bigint generated always as identity primary key, stars int check (stars between 1 and 5), name text, text text, created_at timestamptz default now());
+    alter table feedback enable row level security;  -- koi policy nahi: sirf service key (server) likh sakti hai
+
+## Jo khali hai (site par apne aap hide rehta hai)
+`data/content.js`: `sapna.result`, `sapna.image`, `site.photo`, certificate `image`. Bharte hi dikhne lagenge.
 
 ## Deploy
 GitHub par push karo, Vercel par import karo.

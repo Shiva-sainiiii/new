@@ -1,13 +1,13 @@
 import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
-
 import { Mail, Phone, Pin } from "@/components/Icons";
 
-const Shot = ({ label, style }) => <div className="shot" style={style}>{label}</div>;
+// Khali ya "#" link ko hide karne ke liye
+const ok = (u) => u && u !== "#";
 const Row = ({ a, b, red }) => (<div className="brow"><span>{a}</span><i /><b className={red ? "red" : ""}>{b}</b></div>);
 
 export function Hero() {
   return (
-    <section id="top" className="sec wall blue hero">
+    <section id="top" className="sec wall ink hero">
       <div className="awning" />
       <div className="board-wrap">
         <div className="board">
@@ -19,10 +19,11 @@ export function Hero() {
         <div>
           <h1 className="hl">I build the website behind the sign.</h1>
           <p className="lead">{site.name}, full-stack developer (Next.js, Supabase, AI). 3 web internships and live client sites in Haryana.</p>
+          <p className="proof">Live client site: Dr. Sapna's Dental Care, Rohtak</p>
         </div>
         <div className="stack">
           <a className="btn" href={wa()} target="_blank" rel="noreferrer">Get a website for your business</a>
-          <a className="btn alt" href="#contact">Hire me</a>
+          <a className="btn alt" href={site.resume} target="_blank" rel="noreferrer">Hire me: see resume</a>
         </div>
       </div>
     </section>
@@ -33,17 +34,19 @@ export function Sapna() {
   return (
     <section id="work" className="sec wall chalk">
       <h2 className="d">Dr. Sapna's<br />Dental Care</h2>
-      <div className="split">
+      <div className={`split ${sapna.image ? "" : "one"}`}>
         <div className="bill">
           <div className="stamp">Live</div>
           <div className="bill-h">Bill no. 001 · Rohtak</div>
           <p className="bill-d">A full clinic website with an admin panel the doctor runs herself, and an AI chatbot that answers patients.</p>
-          <Row a="Result" b={sapna.result} red />
+          {sapna.result && <Row a="Result" b={sapna.result} red />}
           <Row a="Stack" b="Next.js · Admin panel · Gemini chatbot" />
           <Row a="My role" b="Design · build · launch" />
           <a className="btn" href={site.sapnaUrl} target="_blank" rel="noreferrer">Open live site ↗</a>
         </div>
-        <div className="browser"><div className="browser-bar"><i /><i /><i /></div><Shot label="[Screenshot: clinic homepage]" style={{ height: 360 }} /></div>
+        {sapna.image && (
+          <div className="browser"><div className="browser-bar"><i /><i /><i /></div><img src={sapna.image} alt="Dr. Sapna's Dental Care website" style={{ display: "block", width: "100%" }} /></div>
+        )}
       </div>
     </section>
   );
@@ -52,7 +55,7 @@ export function Sapna() {
 export function Templates() {
   return (
     <section id="demo" className="sec wall ink">
-      <h2 className="d">Rate list</h2>
+      <h2 className="d">Templates by trade</h2>
       <p className="lead">Pick your business. Each one is a ready site I customise for you.</p>
       <div className="rates">
         {templates.map((t) => (
@@ -61,13 +64,15 @@ export function Templates() {
               <span className="rate-n">{t.name}</span>
               <span className="sw" style={{ background: t.c[0] }} /><span className="sw" style={{ background: t.c[1] }} />
               <i />
-              <a className="tagy" href={wa(`Hi, I want the ${t.name} template`)} target="_blank" rel="noreferrer">Demo</a>
+              {t.demo
+                ? <a className="tagy" href={t.demo} target="_blank" rel="noreferrer">Live demo ↗</a>
+                : <a className="tagy" href={wa(`Hi, I'd like the ${t.name} template`)} target="_blank" rel="noreferrer">Ask for demo</a>}
             </div>
-            <div className="rate-d">{t.text}</div>
+            <div className="rate-d">{t.text} <a className="ul2" href={wa(`Hi Shiva, I run a ${t.name.toLowerCase()} business. I'd like this website.`)} target="_blank" rel="noreferrer">Get this ↗</a></div>
           </div>
         ))}
       </div>
-      <p className="small">Don't see your trade? <a className="ul" href={wa("Hi, my trade is ")} target="_blank" rel="noreferrer">Ask on WhatsApp</a></p>
+      <p className="small">Don't see your trade? <a className="ul" href={wa("Hi, my trade is ")} target="_blank" rel="noreferrer">Ask on WhatsApp</a> · <a className="ul" href={site.moreDemos} target="_blank" rel="noreferrer">More demos ↗</a></p>
     </section>
   );
 }
@@ -90,7 +95,7 @@ export function Services() {
 
 export function Process() {
   return (
-    <section className="sec wall yel">
+    <section id="process" className="sec wall yel">
       <div className="between"><h2 className="d">How a project goes</h2><a className="btn dk" href={wa("Hi, I want a free demo")} target="_blank" rel="noreferrer">Start with a free demo</a></div>
       <div className="tickets">
         {process.map(([a, b], i) => (
@@ -103,14 +108,17 @@ export function Process() {
 
 export function Projects() {
   return (
-    <section className="sec wall chalk">
-      <div className="between"><h2 className="d">Khata:<br />my projects</h2><span className="small">Things I built for myself.</span></div>
+    <section id="projects" className="sec wall chalk">
+      <div className="between"><h2 className="d">Projects</h2><span className="small">Things I built for myself.</span></div>
       <div className="khata">
         {projects.map(([n, stack, d, live, code]) => (
           <div key={n} className="k-row">
-            <div className="k-n">{n}</div>
+            <div className="k-n">{n === "EasyDevOps" ? <a href="#easydevops">{n}</a> : n}</div>
             <div><b>{stack}</b><div>{d}</div></div>
-            <div className="k-l"><a href={live} target="_blank" rel="noreferrer">Live ↗</a><a href={code} target="_blank" rel="noreferrer">Code ↗</a></div>
+            <div className="k-l">
+              {ok(live) && <a href={live} target="_blank" rel="noreferrer">Live ↗</a>}
+              {ok(code) && <a href={code} target="_blank" rel="noreferrer">Code ↗</a>}
+            </div>
           </div>
         ))}
       </div>
@@ -118,9 +126,11 @@ export function Projects() {
   );
 }
 
+const flow = ["Your command", "Intent parser", "AI (only for typos or complex asks)", "GitHub · Vercel · Render · Netlify APIs"];
+
 export function EasyDevOps() {
   return (
-    <section className="sec wall ink">
+    <section id="easydevops" className="sec wall ink">
       <div className="split narrow">
         <div>
           <span className="mk">Engineering project</span>
@@ -130,6 +140,7 @@ export function EasyDevOps() {
           <a className="btn" href={site.easyUrl} target="_blank" rel="noreferrer">Open live app ↗</a>
         </div>
         <div className="notes">
+          <div className="flow" aria-label="How a command flows">{flow.map((x) => <span key={x} className="fl">{x}</span>)}</div>
           {easy.map(([a, b]) => (<div key={a} className="note"><span className="mk">{a}</span><p>{b}</p></div>))}
         </div>
       </div>
@@ -141,14 +152,20 @@ export function About() {
   return (
     <section id="about" className="sec wall chalk">
       <div className="split about">
-        <div className="vcard"><Shot label="[Plain-background photo of you]" style={{ height: 260 }} /><div className="vc-top"><div><div className="vc-n">{site.name}</div><div className="vc-r">Full-stack developer</div></div><img src="/shiva-logo.png" alt="" /></div><div className="vc-c">{site.location}</div></div>
+        <div className="vcard">
+          {site.photo
+            ? <img className="vc-photo" src={site.photo} alt={site.name} />
+            : <div className="vc-logo"><img src="/shiva-logo.png" alt="" /></div>}
+          <div className="vc-top"><div><div className="vc-n">{site.name}</div><div className="vc-r">Full-stack developer</div></div></div>
+          <div className="vc-c">{site.location}</div>
+        </div>
         <div>
           <h2 className="d">About</h2>
           <p className="big2">Self-driven full-stack developer from Kharkhoda, Haryana. I build websites and AI tools for businesses, and I started by deploying from a phone.</p>
           <div className="exp">
             {experience.map(([a, b, c]) => (<div key={a} className="exp-row"><div><b>{a}</b><span>{b}</span></div><em>{c}</em></div>))}
           </div>
-          <div className="row-btns" id="resume"><a className="btn" href={site.resume}>Resume ↓</a><a className="btn alt" href={site.github}>GitHub ↗</a></div>
+          <div className="row-btns" id="resume"><a className="btn" href={site.resume} target="_blank" rel="noreferrer">Resume ↓</a>{ok(site.github) && <a className="btn alt" href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a>}</div>
         </div>
       </div>
     </section>
@@ -157,15 +174,15 @@ export function About() {
 
 export function Certificates() {
   return (
-    <section className="sec wall blue">
-      <div className="between"><h2 className="d">Certificates</h2><span className="small">Tap any one to open it full size.</span></div>
+    <section id="certs" className="sec wall sand">
+      <div className="between"><h2 className="d">Certificates</h2><span className="small">{certs.some((c) => c.image) ? "Tap any one to open it full size." : ""}</span></div>
       <div className="certs">
-        {certs.map((c, i) => (
-          <a key={i} href={c.image || "#"} target="_blank" rel="noreferrer" className="frame">
-            {c.image ? <img src={c.image} alt={c.title} /> : <Shot label="[Certificate image]" style={{ height: 120 }} />}
-            <b>{c.title}</b><span>{c.by}</span>
-          </a>
-        ))}
+        {certs.map((c, i) => {
+          const inner = (<>{c.image && <img src={c.image} alt={c.title} />}<b>{c.title}</b><span>{c.by}</span></>);
+          return c.image
+            ? <a key={i} href={c.image} target="_blank" rel="noreferrer" className="frame">{inner}</a>
+            : <div key={i} className="frame plain">{inner}</div>;
+        })}
       </div>
     </section>
   );
@@ -177,20 +194,21 @@ export function Contact() {
       <div><div className="open-sign"><span className="d">Open</span><small>for freelance work and internships</small></div><h2 className="d huge">Let's talk.</h2></div>
       <div className="contact-grid">
         <div>
-          <div className="row-btns first">
-            <a className="btn wh" href={`mailto:${site.email}`}><Mail size={20} />Email me</a>
-            <a className="btn wh" href={`tel:${site.phone.replace(/\s/g, "")}`}><Phone size={20} />Call me</a>
+          <a className="btn dk big" href={wa()} target="_blank" rel="noreferrer">WhatsApp me</a>
+          <div className="row-btns pair">
+            <a className="btn wh" href={`mailto:${site.email}`}><Mail size={20} />Email</a>
+            <a className="btn wh" href={`tel:${site.phone.replace(/\s/g, "")}`}><Phone size={20} />Call</a>
           </div>
-          <div className="row-btns">
-            <a className="btn dk" href={wa()} target="_blank" rel="noreferrer">WhatsApp me</a>
-            <a className="btn alt" href={site.linkedin}>LinkedIn</a>
-            <a className="btn alt" href={site.github}>GitHub</a>
+          <div className="row-btns mini">
+            {ok(site.linkedin) && <a className="btn alt" href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>}
+            {ok(site.github) && <a className="btn alt" href={site.github} target="_blank" rel="noreferrer">GitHub</a>}
           </div>
         </div>
-        <div className="mapbox">
-          <iframe title="Kharkhoda, Haryana 131402 on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-          <a className="map-cap" href={site.mapLink} target="_blank" rel="noreferrer"><span><Pin size={18} /> {site.location}</span><span>Open in Maps ↗</span></a>
-        </div>
+        <a className="mapcard" href={site.mapLink} target="_blank" rel="noreferrer">
+          <span className="mc-pin"><Pin size={26} /></span>
+          <span className="mc-t">{site.location}</span>
+          <span className="mc-l">Open in Maps ↗</span>
+        </a>
       </div>
     </section>
   );

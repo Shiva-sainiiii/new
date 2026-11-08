@@ -37,6 +37,7 @@ export default function Shutter() {
       <img className="shutter-logo" src="/shiva-logo.png" alt="" />
       <div className="lock" />
       <div className="chev" />
+      <div className="shutter-hint">Tap or scroll to open</div>
     </div>
   );
 }
