@@ -18,12 +18,11 @@ export function Hero() {
       <div className="hero-body">
         <div>
           <h1 className="hl">I build the website behind the sign.</h1>
-          <p className="lead">{site.name}, full-stack developer (Next.js, Supabase, AI). 3 web internships and live client sites in Haryana.</p>
-          <p className="proof">Live client site: Dr. Sapna's Dental Care, Rohtak</p>
+          <p className="lead">Full-stack developer. Live client sites in Haryana.</p>
         </div>
         <div className="stack">
           <a className="btn" href={wa()} target="_blank" rel="noreferrer">Get a website for your business</a>
-          <a className="btn alt" href={site.resume} target="_blank" rel="noreferrer">Hire me: see resume</a>
+          <a className="hero-link" href={site.resume} target="_blank" rel="noreferrer">Hiring? See my resume →</a>
         </div>
       </div>
     </section>

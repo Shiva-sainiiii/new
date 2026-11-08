@@ -2,7 +2,6 @@ import Shutter from "@/components/Shutter";
 import Glasses from "@/components/Glasses";
 import ScrollFX from "@/components/ScrollFX";
 import Nav from "@/components/Nav";
-import StickyBar from "@/components/StickyBar";
 import AskAI from "@/components/AskAI";
 import Feedback from "@/components/Feedback";
 import { Hero, Sapna, Templates, Services, Process, Projects, EasyDevOps, About, Certificates, Contact } from "@/components/Sections";
@@ -15,7 +14,6 @@ export default function Home() {
       <Glasses />
       <Shutter />
       <Nav />
-      <StickyBar />
       <main>
         <Hero />
         <Sapna />
