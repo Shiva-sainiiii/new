@@ -47,7 +47,7 @@ export function Sapna() {
         {sapna.image && (
           <div className="shots-wrap">
             <div className="browser"><div className="browser-bar"><i /><i /><i /></div><img src={sapna.image} alt="Dr. Sapna's Dental Care website" style={{ display: "block", width: "100%" }} /></div>
-            {sapna.mobile && <div className="phone"><img src={sapna.mobile} alt="Dr. Sapna's Dental Care on mobile" /></div>}
+            {sapna.mobile && <div className="sphone"><img src={sapna.mobile} alt="Dr. Sapna's Dental Care on mobile" /></div>}
           </div>
         )}
       </div>
