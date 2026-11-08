@@ -19,8 +19,8 @@ export const wa = (t = "Hi Shiva, I want a website for my business") =>
 // Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
 export const heroLines = ["Your business,", "now online."];
 
-// result: jab asli number/line ho tab bharo (khali = row hide). image: "/sapna.jpg" (screenshot) public/ me rakho.
-export const sapna = { result: "", image: null };
+// result: jab asli number/line ho tab bharo (khali = row hide). image = desktop screenshot, mobile = phone screenshot (dono public/shots/ me hain).
+export const sapna = { result: "", image: "/shots/sapna-desktop.png", mobile: "/shots/sapna-mobile.jpg" };
 
 export const templates = [
   { name: "Dentist", text: "Clinic site with booking, treatments and a chatbot.", c: ["#0e5a6b", "#7fe3f0"], demo: "https://egsite.vercel.app/samples/dental/3d/index.html" },
@@ -40,11 +40,13 @@ export const process = [
   ["Build", "A fast website for your business. Booking or an AI assistant only where it actually helps."],
   ["Launch", "Google Business and WhatsApp Business set up, so customers can find you and message you."],
 ];
+// [naam, stack, description, live link, code link, [screenshots]] — screenshots public/shots/ me rakho
 export const projects = [
-  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", ""],
-  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai"],
-  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush"],
-  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog"],
+  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", "", ["/shots/easydevops.png"]],
+  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai", []],
+  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush", ["/shots/snake-rush-menu.jpg", "/shots/snake-rush-game.png"]],
+  ["GuessArt", "PeerJS · WebRTC · Canvas", "Multiplayer drawing and guessing game with voice chat. Peer to peer, no backend.", "", "", ["/shots/guessart.png"]], // live/code link yahan bharo
+  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog", []],
 ];
 export const easy = [
   ["Problem", "June 2026, coding from a phone: GitHub meant adding and deleting files one by one, and Vercel meant a separate tab to import a repo and deploy."],
