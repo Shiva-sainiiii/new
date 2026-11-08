@@ -8,7 +8,7 @@ export const site = {
   mapEmbed: "https://www.google.com/maps?q=Kharkhoda%2C%20Sonipat%2C%20Haryana%20131402&output=embed",
   mapLink: "https://www.google.com/maps/search/?api=1&query=Kharkhoda+Haryana+131402",
   github: "https://github.com/Shiva-sainiiii", linkedin: "https://www.linkedin.com/in/shiva-sainiiii", resume: "/resume.pdf", // resume: public/resume.pdf
-  photo: null, // apni plain-background photo public/ me rakho aur "/me.jpg" likho; tab tak logo dikhta hai
+  photo: "/me.jpg", // public/me.jpg; null karoge to logo dikhega
   moreDemos: "https://egsite.vercel.app",
   sapnaUrl: "https://drsapnadentalrohtak.vercel.app/",
   easyUrl: "https://easydevops.vercel.app",
