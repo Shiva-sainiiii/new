@@ -17,7 +17,7 @@ export function Hero() {
       </div>
       <div className="hero-body">
         <div>
-          <h1 className="hl">I build the website behind the sign.</h1>
+          <h1 className="hl">I build<br />the website<br />behind the sign.</h1>
           <p className="lead">Full-stack developer. Live client sites in Haryana.</p>
         </div>
         <div className="stack">
