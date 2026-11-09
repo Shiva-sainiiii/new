@@ -10,13 +10,15 @@ export const site = {
   github: "https://github.com/Shiva-sainiiii", linkedin: "https://www.linkedin.com/in/shiva-sainiiii", resume: "/resume.pdf", // resume: public/resume.pdf
   photo: "/me.jpg", // public/me.jpg; null karoge to logo dikhega
   moreDemos: "https://egsite.vercel.app",
-  sapnaUrl: "https://drsapnadentalrohtak.vercel.app/",
+  sapnaUrl: "https://drsapnadentalrohtak.com/",
   easyUrl: "https://easydevops.vercel.app",
 };
 export const wa = (t = "Hi Shiva, I want a website for my business") =>
   `https://wa.me/${site.wa}?text=${encodeURIComponent(t)}`;
 
 // Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
+// Hero ke neeche stats. clients: apna asli happy-clients number likho (jaise "5+"); khali rakhoge to wo stat hide rahega.
+export const heroStats = { clients: "" };
 export const heroLines = ["Your business,", "now online."];
 
 // result: jab asli number/line ho tab bharo (khali = row hide). image = desktop screenshot, mobile = phone screenshot (dono public/shots/ me hain).
@@ -44,9 +46,20 @@ export const process = [
 export const projects = [
   ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", "", ["/shots/easydevops.png"]],
   ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai", []],
+  ["Code Editor AI", "AI · Web app", "AI-assisted code editor in the browser.", "https://code-editor-ai-taupe.vercel.app/", "", []],
+  ["Code Editor AI 2", "AI · Web app", "Second build of the AI code editor.", "https://codeeditorai-blush.vercel.app/", "", []],
   ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush", ["/shots/snake-rush-game.png"]],
-  ["GuessArt", "PeerJS · WebRTC · Canvas", "Multiplayer drawing and guessing game with voice chat. Peer to peer, no backend.", "", "", ["/shots/guessart.png"]], // live/code link yahan bharo
+  ["GuessArt", "PeerJS · WebRTC · Canvas", "Multiplayer drawing and guessing game with voice chat. Peer to peer, no backend.", "https://guessart.vercel.app/", "", ["/shots/guessart.png"]],
+  ["AI Mind Trap", "AI · Quiz game", "Quiz and puzzle game that tries to trap your mind.", "https://ai-mind-trap.vercel.app/", "", []],
+  ["Online Games", "Web games", "A hub of small browser games.", "https://onlinegames-one.vercel.app/", "", []],
+  ["Horror Tic Tac Toe", "Web game", "Tic tac toe with a horror twist.", "https://horrortictactoe.vercel.app/", "", []],
+  ["Ominikit", "Vanilla JS · HTML · CSS", "One toolbox of dev, social, business and productivity tools.", "https://omnikithub.vercel.app/", "", []],
+  ["Shanu AI Chatbot", "AI · Chatbot", "AI chatbot web app.", "https://shanu-ai-chatbot.vercel.app/", "", []],
+  ["AI Teaching Assistants", "AI · Web app", "AI assistants that help with teaching and learning.", "https://ai-teaching-assistants.vercel.app/", "", []],
+  ["AI Vision Board", "AI · Web app", "Build a vision board with AI.", "https://ai-vision-board-one.vercel.app/", "", []],
+  ["Shanu SMM Panel", "Web app", "Social media marketing panel.", "https://shanusmmpanel.vercel.app/", "", []],
   ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog", []],
+  ["The Untold Life", "Book website", "Website for my book, The Untold Life: A Boy Who Refused To Break.", "https://the-untold-life.vercel.app/", "", []],
 ];
 export const easy = [
   ["Problem", "June 2026, coding from a phone: GitHub meant adding and deleting files one by one, and Vercel meant a separate tab to import a repo and deploy."],

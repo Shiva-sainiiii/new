@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { site, wa } from "@/data/content";
+import ThemeToggle from "@/components/ThemeToggle";
 const links = [["Work", "#work"], ["Services", "#services"], ["Projects", "#projects"], ["About", "#about"]];
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -11,8 +12,12 @@ export default function Nav() {
       <nav className={open ? "open" : ""} onClick={() => setOpen(false)}>
         {links.map(([l, h]) => <a key={l} href={h}>{l}</a>)}
         <a href={site.resume} target="_blank" rel="noreferrer">Resume</a>
-        <a className="btn sm" href={wa()} target="_blank" rel="noreferrer">Contact</a>
+        <a className="btn sm only-m" href={wa()} target="_blank" rel="noreferrer">Contact</a>
       </nav>
+      <div className="nav-right">
+        <a className="btn sm nav-cta" href={wa()} target="_blank" rel="noreferrer">Contact</a>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

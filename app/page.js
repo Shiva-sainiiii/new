@@ -1,5 +1,3 @@
-import Shutter from "@/components/Shutter";
-import Glasses from "@/components/Glasses";
 import ScrollFX from "@/components/ScrollFX";
 import Nav from "@/components/Nav";
 import AskAI from "@/components/AskAI";
@@ -11,8 +9,6 @@ export default function Home() {
   return (
     <>
       <ScrollFX />
-      <Glasses />
-      <Shutter />
       <Nav />
       <main>
         <Hero />
