@@ -23,13 +23,15 @@ export function Hero() {
             <a className="btn" href={wa()} target="_blank" rel="noreferrer">Get a website for your business →</a>
             <a className="btn alt" href={site.resume} target="_blank" rel="noreferrer">Hiring? See my resume</a>
           </div>
+        </div>
+        <div className="hero-right">
+          <div className="hero-art"><span className="disc" /><span className="orbit-wrap" aria-hidden="true"><span className="arc"><i className="star" /></span></span><img src="/statue.webp" alt="" width="1000" height="960" /></div>
           <div className="stats">
             <div className="stat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6" /></svg><div><b>{projects.length}+</b><span>Projects</span></div></div>
             {heroStats.clients && <div className="stat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" /></svg><div><b>{heroStats.clients}</b><span>Happy Clients</span></div></div>}
             <div className="stat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.7V17c0 .6-.5 1-1.2 1.2C7.8 18.5 7 20 7 22M14 14.7V17c0 .6.5 1 1.2 1.2 1 .3 1.8 1.8 1.8 3.8M18 2H6v7a6 6 0 0 0 12 0Z" /></svg><div><b>{certs.length}+</b><span>Certificates</span></div></div>
           </div>
         </div>
-        <div className="hero-art"><span className="disc" /><span className="orbit-wrap" aria-hidden="true"><span className="arc"><i className="star" /></span></span><img src="/statue.webp" alt="" width="1000" height="960" /></div>
       </div>
     </section>
   );
