@@ -9,22 +9,18 @@ const Row = ({ a, b, red }) => (<div className="brow"><span>{a}</span><i /><b cl
 export function Hero() {
   return (
     <section id="top" className="sec wall ink hero">
-      <div className="awning" />
-      <div className="board-wrap">
-        <div className="board">
-          <div className="d board-t">{heroLines.map((l) => <span key={l}>{l}</span>)}</div>
-          <div className="board-s">Clinic · Gym · Café · Real Estate · Services</div>
-        </div>
-      </div>
-      <div className="hero-body">
-        <div>
-          <h1 className="hl">I build<br />the website<br />behind the sign.</h1>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <div className="eyebrow">Clinic · Gym · Café · Real Estate · Services</div>
+          <h1 className="hero-title">{heroLines.map((l, i) => <span key={l} className={i === heroLines.length - 1 ? "y" : ""}>{l}</span>)}</h1>
+          <p className="hero-sub">I build the website behind the sign.</p>
           <p className="lead">Full-stack developer. Live client sites in Haryana.</p>
+          <div className="row-btns">
+            <a className="btn" href={wa()} target="_blank" rel="noreferrer">Get a website for your business →</a>
+            <a className="btn alt" href={site.resume} target="_blank" rel="noreferrer">Hiring? See my resume</a>
+          </div>
         </div>
-        <div className="stack">
-          <a className="btn" href={wa()} target="_blank" rel="noreferrer">Get a website for your business</a>
-          <a className="hero-link" href={site.resume} target="_blank" rel="noreferrer">Hiring? See my resume →</a>
-        </div>
+        <div className="hero-art"><img src="/statue.webp" alt="" width="1000" height="960" /></div>
       </div>
     </section>
   );

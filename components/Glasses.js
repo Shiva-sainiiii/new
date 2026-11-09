@@ -47,7 +47,7 @@ export default function Glasses() {
       W = base * 1.6;
       el.style.width = W + "px"; el.style.height = W * 0.5 + "px";
       // pehla target = hero ka sign (board); baaki = har section ki heading
-      const targets = [...document.querySelectorAll(".hero .board, .sec h2.d")];
+      const targets = [...document.querySelectorAll(".hero .hero-title, .sec h2.d")];
       A = targets.map((h, idx) => {
         const p = docPos(h);
         let textRight, textTop, fs;
