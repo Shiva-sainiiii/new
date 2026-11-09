@@ -17,8 +17,8 @@ export const wa = (t = "Hi Shiva, I want a website for my business") =>
   `https://wa.me/${site.wa}?text=${encodeURIComponent(t)}`;
 
 // Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
-// Hero ke neeche stats. clients: apna asli happy-clients number likho (jaise "5+"); khali rakhoge to wo stat hide rahega.
-export const heroStats = { clients: "" };
+// Hero ke neeche stats. clients: happy clients ka number (khali rakhoge to hide ho jayega).
+export const heroStats = { clients: "3+" };
 export const heroLines = ["Your business,", "now online."];
 
 // result: jab asli number/line ho tab bharo (khali = row hide). image = desktop screenshot, mobile = phone screenshot (dono public/shots/ me hain).
