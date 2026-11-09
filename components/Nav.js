@@ -6,7 +6,7 @@ const links = [["Work", "#work"], ["Services", "#services"], ["Projects", "#proj
 export default function Nav() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="nav">
+    <header className={`nav ${open ? "menu-open" : ""}`}>
       <a href="#top" className="logo"><img src="/shiva-logo-nobg.png" width="38" height="38" alt="" /><span>{site.name}</span></a>
       <button className={`burger ${open ? "open" : ""}`} aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}><i /><i /><i /></button>
       <nav className={open ? "open" : ""} onClick={() => setOpen(false)}>
