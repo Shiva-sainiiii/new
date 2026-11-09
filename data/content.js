@@ -8,9 +8,9 @@ export const site = {
   mapEmbed: "https://www.google.com/maps?q=Kharkhoda%2C%20Sonipat%2C%20Haryana%20131402&output=embed",
   mapLink: "https://www.google.com/maps/search/?api=1&query=Kharkhoda+Haryana+131402",
   github: "https://github.com/Shiva-sainiiii", linkedin: "https://www.linkedin.com/in/shiva-sainiiii", resume: "/resume.pdf", // resume: public/resume.pdf
-  photo: "/me.jpg", // public/me.jpg; null karoge to logo dikhega
+  photo: null, // apni plain-background photo public/ me rakho aur "/me.jpg" likho; tab tak logo dikhta hai
   moreDemos: "https://egsite.vercel.app",
-  sapnaUrl: "https://drsapnadentalrohtak.vercel.app/",
+  sapnaUrl: "https://drsapnadentalrohtak.com/",
   easyUrl: "https://easydevops.vercel.app",
 };
 export const wa = (t = "Hi Shiva, I want a website for my business") =>
@@ -19,8 +19,8 @@ export const wa = (t = "Hi Shiva, I want a website for my business") =>
 // Hero signboard ki do lines. Yahin se badlo (har line chhoti rakho, mobile par bhi ek line mein aani chahiye).
 export const heroLines = ["Your business,", "now online."];
 
-// result: jab asli number/line ho tab bharo (khali = row hide). image = desktop screenshot, mobile = phone screenshot (dono public/shots/ me hain).
-export const sapna = { result: "", image: "/shots/sapna-desktop.png", mobile: "/shots/sapna-mobile.jpg" };
+// result: jab asli number/line ho tab bharo (khali = row hide). image: "/sapna.jpg" (screenshot) public/ me rakho.
+export const sapna = { result: "", image: null };
 
 export const templates = [
   { name: "Dentist", text: "Clinic site with booking, treatments and a chatbot.", c: ["#0e5a6b", "#7fe3f0"], demo: "https://egsite.vercel.app/samples/dental/3d/index.html" },
@@ -40,13 +40,25 @@ export const process = [
   ["Build", "A fast website for your business. Booking or an AI assistant only where it actually helps."],
   ["Launch", "Google Business and WhatsApp Business set up, so customers can find you and message you."],
 ];
-// [naam, stack, description, live link, code link, [screenshots]] — screenshots public/shots/ me rakho
 export const projects = [
-  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", "", ["/shots/easydevops.png"]],
-  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai", []],
-  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush", ["/shots/snake-rush-game.png"]],
-  ["GuessArt", "PeerJS · WebRTC · Canvas", "Multiplayer drawing and guessing game with voice chat. Peer to peer, no backend.", "", "", ["/shots/guessart.png"]], // live/code link yahan bharo
-  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog", []],
+  // [naam, stack, ek line, live link, code link]. Khali "" link site pe hide ho jaati hai.
+  ["EasyDevOps", "Flask · Python intent parser · Platform APIs", "Deploy from a phone: GitHub, Vercel, Render, Netlify on one screen.", "https://easydevops.vercel.app", ""],
+  ["CodeAgent", "Vanilla JS · AI API", "Mobile-first coding assistant with live preview and self-testing.", "https://codeagentai.vercel.app/", "https://github.com/Shiva-sainiiii/Code-Editor-Ai"],
+  ["OmniKit", "Vanilla JS · 100% client-side", "20+ free tools (invoice, tax slabs, ATS resume checker) that never leave the browser.", "https://omnikithub.vercel.app/", "https://github.com/Shiva-sainiiii/omnikit"],
+  ["Shanu AI", "Firebase · Multi-provider AI · SSE streaming", "AI chat app with login, streaming replies and chat threads.", "https://shanu-ai-chatbot.vercel.app/", "https://github.com/Shiva-sainiiii/Shanu-Ai-"],
+  ["GuessArt", "PeerJS · WebRTC · Vanilla JS", "Peer-to-peer drawing and guessing game with a local bot and Hinglish support.", "https://guessart.vercel.app/", ""],
+  ["Snake Rush", "Canvas · Vanilla JS", "Browser slither game with AI snakes that have personalities.", "https://snakerushgame.vercel.app/", "https://github.com/Shiva-sainiiii/SnakeRush"],
+  ["Blog Website", "Supabase · OpenRouter · Vercel", "A blog where human writing meets AI.", "https://ai-blog-gamma-lyart.vercel.app/", "https://github.com/Shiva-sainiiii/ai-blog"],
+];
+
+// Chhote projects: sirf naam + link, list ke neeche ek line me
+export const moreProjects = [
+  ["AI Teaching Assistant", "https://ai-teaching-assistants.vercel.app/"],
+  ["AI Mind Trap", "https://ai-mind-trap.vercel.app/"],
+  ["X/O & Chess online", "https://onlinegames-one.vercel.app/"],
+  ["AI Vision Board 3D", "https://ai-vision-board-one.vercel.app/"],
+  ["Shiva Editor", "https://code-editor-ai-taupe.vercel.app/"],
+  ["Horror Tic Tac Toe", "https://horrortictactoe.vercel.app/"],
 ];
 export const easy = [
   ["Problem", "June 2026, coding from a phone: GitHub meant adding and deleting files one by one, and Vercel meant a separate tab to import a repo and deploy."],
@@ -61,15 +73,11 @@ export const experience = [
 ];
 // image: public/certs/ mein file rakho aur "/certs/name.jpg" likho
 export const certs = [
-  ["Maincrafts Technology", "Internship", "/certs/maincrafts-internship.jpg"],
-  ["Letter of Recommendation", "Maincrafts Technology", "/certs/maincrafts-recommendation.jpg"],
-  ["Web Development Internship", "OCTANET Pvt Ltd", "/certs/octanet-internship.jpg"],
-  ["AI For Beginners", "Microsoft", "/certs/microsoft-ai.jpg"],
-  ["Data Entry Operator", "IT/ITeS", "/certs/data-entry-operator.jpg"],
-  ["ADCA", "Sunshine Campus", "/certs/adca.jpg"],
-  ["CRM", "IT/ITeS", "/certs/crm.jpg"],
-  ["Web Development Internship", "CODSOFT", "/certs/codsoft-internship.jpg"],
-].map(([title, by, image]) => ({ title, by, image }));
+  ["Maincrafts Technology", "Internship"], ["Maincrafts Technology", "Internship"],
+  ["Web Development Internship", "OCTANET Pvt Ltd"], ["AI For Beginners", "Microsoft"],
+  ["Data Entry Operator", "IT/ITeS"], ["ADCA", "Sunshine Campus"],
+  ["CRM", "IT/ITeS"], ["Web Development Internship", "CODSOFT"],
+].map(([title, by]) => ({ title, by, image: null }));
 export const askChips = ["What did you build for Dr. Sapna?", "Which stack do you use?", "Can you make a site for my gym?"];
 // AI ko jo context milega
 export const aiContext = `You are Shiva Saini's portfolio assistant. Answer briefly and only from this info.

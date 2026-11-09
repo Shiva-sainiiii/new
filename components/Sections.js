@@ -1,6 +1,5 @@
-import { site, wa, heroLines, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
+import { site, wa, heroLines, sapna, templates, services, process, projects, moreProjects, easy, experience, certs } from "@/data/content";
 import { Mail, Phone, Pin } from "@/components/Icons";
-import ProjectList from "@/components/ProjectList";
 
 // Khali ya "#" link ko hide karne ke liye
 const ok = (u) => u && u !== "#";
@@ -45,10 +44,7 @@ export function Sapna() {
           <a className="btn" href={site.sapnaUrl} target="_blank" rel="noreferrer">Open live site ↗</a>
         </div>
         {sapna.image && (
-          <div className="shots-wrap">
-            <div className="browser"><div className="browser-bar"><i /><i /><i /></div><img src={sapna.image} alt="Dr. Sapna's Dental Care website" style={{ display: "block", width: "100%" }} /></div>
-            {sapna.mobile && <div className="sphone"><img src={sapna.mobile} alt="Dr. Sapna's Dental Care on mobile" /></div>}
-          </div>
+          <div className="browser"><div className="browser-bar"><i /><i /><i /></div><img src={sapna.image} alt="Dr. Sapna's Dental Care website" style={{ display: "block", width: "100%" }} /></div>
         )}
       </div>
     </section>
@@ -113,7 +109,19 @@ export function Projects() {
   return (
     <section id="projects" className="sec wall chalk">
       <div className="between"><h2 className="d">Projects</h2><span className="small">Things I built for myself.</span></div>
-      <ProjectList />
+      <div className="khata">
+        {projects.map(([n, stack, d, live, code]) => (
+          <div key={n} className="k-row">
+            <div className="k-n">{n === "EasyDevOps" ? <a href="#easydevops">{n}</a> : n}</div>
+            <div><b>{stack}</b><div>{d}</div></div>
+            <div className="k-l">
+              {ok(live) && <a href={live} target="_blank" rel="noreferrer">Live ↗</a>}
+              {ok(code) && <a href={code} target="_blank" rel="noreferrer">Code ↗</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="small more">More: {moreProjects.map(([n, u], i) => (<span key={n}>{i > 0 && " · "}<a className="ul" href={u} target="_blank" rel="noreferrer">{n}</a></span>))}</p>
     </section>
   );
 }
