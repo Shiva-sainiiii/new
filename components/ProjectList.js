@@ -7,6 +7,7 @@ const ok = (u) => u && u !== "#";
 // Project row par hover karo to uska screenshot mouse ke peeche floating karta hai (sirf Projects section ke andar).
 export default function ProjectList() {
   const [active, setActive] = useState(null);
+  const [all, setAll] = useState(false); // mobile par sirf top 3, baaki "View all" se
   const fl = useRef(null);
   const m = useRef({ x: 0, y: 0, cx: 0, cy: 0 });
   const sec = useRef(null);
@@ -49,7 +50,7 @@ export default function ProjectList() {
 
   return (
     <>
-      <div className="khata" onMouseLeave={() => setActive(null)}>
+      <div className={`khata ${all ? "all" : ""}`} onMouseLeave={() => setActive(null)}>
         {projects.map(([n, stack, d, live, code, imgs = []], i) => (
           <div key={n} className="k-row" onMouseEnter={(e) => enter(i, e, imgs.length > 0)} onMouseMove={move}>
             <div className="k-n">{n === "EasyDevOps" ? <a href="#easydevops">{n}</a> : n}</div>
@@ -66,6 +67,9 @@ export default function ProjectList() {
           </div>
         ))}
       </div>
+      <button type="button" className="btn alt view-all" onClick={() => { const next = !all; setAll(next); if (!next) document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}>
+        {all ? "Show less ↑" : `View all ${projects.length} projects ↓`}
+      </button>
       <div ref={fl} className={`k-float ${shots.length ? "on" : ""}`} aria-hidden="true">
         {shots.map((src, j) => <img key={src} src={src} alt="" className={j ? "second" : ""} />)}
       </div>

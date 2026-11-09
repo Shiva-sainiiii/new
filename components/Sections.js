@@ -1,6 +1,8 @@
 import { site, wa, heroLines, heroStats, sapna, templates, services, process, projects, easy, experience, certs } from "@/data/content";
-import { Mail, Phone, Pin } from "@/components/Icons";
+import { Mail, Phone, Pin, GearInfinity } from "@/components/Icons";
 import ProjectList from "@/components/ProjectList";
+import Rotator from "@/components/Rotator";
+import TradeIcon from "@/components/TradeIcons";
 
 // Khali ya "#" link ko hide karne ke liye
 const ok = (u) => u && u !== "#";
@@ -11,7 +13,7 @@ export function Hero() {
     <section id="top" className="sec wall ink hero">
       <div className="hero-grid">
         <div className="hero-copy">
-          <div className="eyebrow">Clinic · Gym · Café · Real Estate · Services</div>
+          <div className="eyebrow"><span className="eb-full">Clinic · Gym · Café · Real Estate · Services</span><Rotator items={["Clinic", "Gym", "Café", "Real Estate", "Jewellery", "Services"]} /></div>
           <h1 className="hero-title">{heroLines.map((l, i) => {
             if (i !== heroLines.length - 1) return <span key={l} className="t1">{l}</span>;
             const [first, ...rest] = l.split(" ");
@@ -40,7 +42,7 @@ export function Hero() {
 export function Sapna() {
   return (
     <section id="work" className="sec wall chalk">
-      <h2 className="d">Dr. Sapna's<br />Dental Care</h2>
+      <h2 className="d one-line">Dr. Sapna's<br className="dbr" /> Dental Care</h2>
       <div className={`split ${sapna.image ? "" : "one"}`}>
         <div className="bill">
           <div className="stamp">Live</div>
@@ -73,6 +75,7 @@ export function Templates() {
             <div className="rate-top">
               <span className="rate-n">{t.name}</span>
               <span className="sw" style={{ background: t.c[0] }} /><span className="sw" style={{ background: t.c[1] }} />
+              <TradeIcon name={t.name} />
               <i />
               {t.demo
                 ? <a className="tagy" href={t.demo} target="_blank" rel="noreferrer">Live demo ↗</a>
@@ -133,7 +136,7 @@ export function EasyDevOps() {
       <div className="split narrow">
         <div>
           <span className="mk">Engineering project</span>
-          <h2 className="d" style={{ marginTop: 18 }}>Easy<br />DevOps</h2>
+          <h2 className="d one-line ed-h" style={{ marginTop: 18 }}><GearInfinity className="ed-ico" size={40} /><span>Easy<br className="dbr" />DevOps</span></h2>
           <p className="lead">Deploy without a laptop. GitHub, Vercel, Render and Netlify on one screen, driven by plain commands.</p>
           <div className="stickers">{["Flask", "Vanilla JS", "Python intent parser", "Platform APIs"].map((x) => <span key={x} className="sticker">{x}</span>)}</div>
           <a className="btn" href={site.easyUrl} target="_blank" rel="noreferrer">Open live app ↗</a>
