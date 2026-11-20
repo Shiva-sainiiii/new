@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivu - Landing Page</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body { background: #f8f9fa; color: #222; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; background: white; }
+  nav h2 { color: #6c5ce7; }
+  nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: bold; }
+  .hero { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: white; }
+  .hero h1 { font-size: 48px; margin-bottom: 15px; }
+  .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+  .btn { background: white; color: #6c5ce7; padding: 14px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 16px; }
+  .features { display: flex; justify-content: center; gap: 20px; padding: 50px 20px; flex-wrap: wrap; }
+  .card { background: white; padding: 30px; width: 280px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+  .card h3 { margin: 15px 0 10px; }
+  .card p { color: #666; font-size: 14px; line-height: 1.6; }
+  footer { text-align: center; padding: 20px; color: #888; font-size: 14px; }
+  @media(max-width: 600px){ .hero h1{font-size: 32px;} nav{padding: 15px 20px;} }
+</style>
 </head>
 <body>
-    
+
+<nav>
+  <h2>Shivu.</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Apna Business Online Le Jao</h1>
+  <p>Fast, Simple aur Modern Landing Page - Sirf 5 Minute Me Ready.</p>
+  <br>
+  <a href="#" class="btn">Abhi Start Karo</a>
+</div>
+
+<div class="features">
+  <div class="card">
+    <h3>⚡ Fast Speed</h3>
+    <p>Page ekdum fast load hoga, user wait nahi karega.</p>
+  </div>
+  <div class="card">
+    <h3>📱 Mobile Friendly</h3>
+    <p>Mobile aur laptop dono me perfect dikhega.</p>
+  </div>
+  <div class="card">
+    <h3>🎨 Modern Design</h3>
+    <p>Clean aur professional look jo customer ko impress karega.</p>
+  </div>
+</div>
+
+<footer>© 2026 Shivu. All Rights Reserved.</footer>
+
 </body>
 </html>
